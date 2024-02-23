@@ -162,8 +162,8 @@ const TransformationForm = ({action, data = null, type, userId, creditBalance, c
                     [fieldName === 'prompt' ? 'prompt' : 'to'] : value
                 }
             }))
-            return  onChangeField(value)
-        }, 1000)
+        }, 1000)()
+        return  onChangeField(value)
     }
 
     
@@ -231,13 +231,13 @@ const TransformationForm = ({action, data = null, type, userId, creditBalance, c
                             type=== 'remove' ? 'Object to remove' : 'Object to recolor'
                         }
                         className="w-full"
-                        render={(({field}) => (
+                        render={({field}) => (
                             <Input
                                 value={field.value}
                                 className="input-field"
                                 onChange={(e) => onInputChangeHandler('prompt', e.target.value, type, field.onChange)}
                             />
-                        ))}
+                        )}
                     />
                 </div>
             )}
